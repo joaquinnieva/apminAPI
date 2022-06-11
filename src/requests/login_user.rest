@@ -1,0 +1,28 @@
+### valid
+POST http://localhost:3001/api/user/login
+content-type: application/json
+
+{
+    "name": "jota",
+    "password": "samplepw"
+}
+
+
+### invalid
+POST http://localhost:3001/api/login
+content-type: application/json
+
+{
+    "username": "sample",
+    "password": "sp"
+}
+
+
+### no pw or name
+POST http://localhost:3001/api/login
+Authorization:Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NSwibmFtZSI6ImpvdGEiLCJwYXNzd29yZCI6InNhbXBsZXB3IiwiaWF0IjoxNjU0OTg5OTE1fQ.29L20Qqf2NzwXgBU74xdPRTkzo2zsUs7uKp8ntHtYJw
+
+{
+    "name": "jota",
+    "password": "samplepw"
+}

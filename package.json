@@ -1,0 +1,27 @@
+{
+  "name": "apmin-api",
+  "version": "1.0.0",
+  "private": true,
+  "description": "API for apmin, developed by Joaquín Nieva",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "dev": "nodemon src/index.js"
+  },
+  "author": "Joaquín Nieva",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "2.8.5",
+    "express": "4.17.2",
+    "jsonwebtoken": "^8.5.1",
+    "morgan": "1.10.0",
+    "pg": "^8.7.3",
+    "pg-hstore": "^2.3.4",
+    "sequelize": "^6.20.1"
+  },
+  "devDependencies": {
+    "nodemon": "2.0.15",
+    "sequelize-cli": "^6.4.1"
+  }
+}
