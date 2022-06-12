@@ -2,5 +2,5 @@
 GET http://localhost:3001/api/user
 
 
-### by id
-GET http://localhost:3001/api/user/1
+### by name
+GET http://localhost:3001/api/user/jota

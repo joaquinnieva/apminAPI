@@ -20,15 +20,15 @@ router.get('/', async (req, res, next) => {
 });
 
 // GET User by id
-router.get('/:id', async (req, res, next) => {
-  const { id } = req.params;
+router.get('/:name', async (req, res, next) => {
+  const { name } = req.params;
   try {
-    const { name, data } = await Users.findOne({
+    const user = await Users.findOne({
       where: {
-        id,
+        name,
       },
     });
-    res.json({ name, data }).end();
+    res.json({ name: user.name, data: user.data }).end();
   } catch (error) {
     res.status(500).json({
       message: error.message,
@@ -58,8 +58,8 @@ router.post('/', async (req, res, next) => {
 });
 
 // EDIT a User by ID
-router.put('/:id', async (req, res, next) => {
-  const { id } = req.params;
+router.put('/:name', async (req, res, next) => {
+  const { name } = req.params;
   const { data } = req.body;
   const authorization = req.get('authorization');
   let token = null;
@@ -68,9 +68,14 @@ router.put('/:id', async (req, res, next) => {
   }
   const decodedToken = jwt.verify(token,'token');
   
-  if (decodedToken && (id == decodedToken.id)) {
+  if (decodedToken && (name == decodedToken.name)) {
     try {
-      const user = await Users.findByPk(id);
+      const user = await Users.findOne({
+        where: {
+          name,
+        },
+      });
+
       user.data = data;
       await user.save();
       res.json({
@@ -97,14 +102,8 @@ router.delete('/:id', async (req, res, next) => {
         id,
       },
     });
-    await Users.destroy({
-      where: {
-        id,
-      },
-    });
     return res.sendStatus(204).json({ message: 'User deleted id:' + id }).end();
   }
-
   if (!user) {
     return res.status(500).json({ message: 'User not found' }).end();
   }
