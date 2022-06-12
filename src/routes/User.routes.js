@@ -113,11 +113,9 @@ router.delete('/:id', async (req, res, next) => {
 // POST to login User
 router.post('/login', async (req, res, next) => {
   const { name, password } = req.body;
-  const authorization = req.get('authorization');
+  const authorization = req.get('Authorization');
   let token = null;
-
-console.log(authorization,"auth")
-
+  
   if (!authorization) {
     const userToLogin = await Users.findOne({
       where: {
@@ -135,12 +133,11 @@ console.log(authorization,"auth")
     }else {
       res.status(401).json({ status: 'Invalid data' }).end();
     }
-  }if (authorization){console.log(authorization)
+  }if (authorization){
     let decodedToken = null;
     if (authorization && authorization.toLowerCase().startsWith('bearer')) {
       token = authorization.substring(7);
       decodedToken = jwt.verify(token,'token');
-      console.log("TOKEN=",decodedToken)
     }
     if (decodedToken.password == password) {
       res.send({ id: decodedToken.id, token }).end();

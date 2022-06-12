@@ -7,20 +7,10 @@ content-type: application/json
     "password": "samplepw"
 }
 
-
-### invalid
-POST http://localhost:3001/api/login
-content-type: application/json
-
-{
-    "username": "sample",
-    "password": "sp"
-}
-
-
 ### no pw or name
-POST http://localhost:3001/api/login
-Authorization:Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NSwibmFtZSI6ImpvdGEiLCJwYXNzd29yZCI6InNhbXBsZXB3IiwiaWF0IjoxNjU0OTg5OTE1fQ.29L20Qqf2NzwXgBU74xdPRTkzo2zsUs7uKp8ntHtYJw
+POST http://localhost:3001/api/user/login
+content-type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NSwibmFtZSI6ImpvdGEiLCJwYXNzd29yZCI6InNhbXBsZXB3IiwiaWF0IjoxNjU1MDA1MTI2fQ.UkQzI5NOyAq3PaNL8-qw5Vh_8078WHgfzkLn8GCemAA
 
 {
     "name": "jota",
