@@ -1,7 +1,0 @@
-PUT http://localhost:3001/api/user/jota
-content-type: application/json
-Authorization:Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NSwibmFtZSI6ImpvdGEiLCJwYXNzd29yZCI6InNhbXBsZXB3IiwiaWF0IjoxNjU0OTg5Njc2fQ.lp9TXfAGkwxBPNHpJZ7StJ_oKWvr9cPNwo4PbM7Ctkc
-
-{
-    "data": {"sample":"json"}
-}

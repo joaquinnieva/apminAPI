@@ -3,6 +3,7 @@ import express from 'express';
 import morgan from 'morgan';
 import path from 'path';
 import { sequelize } from './database.js';
+import shipping from './routes/Shipping.routes.js';
 import users from './routes/User.routes.js';
 
 import './models/User.js';
@@ -22,6 +23,7 @@ async function api() {
 
     // Routes
     app.use('/api/user', users);
+    app.use('/api/shipping', shipping);
 
     // Static Files
     app.use(express.static(path.join(process.cwd(),'src', 'public')));

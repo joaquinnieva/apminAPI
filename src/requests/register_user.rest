@@ -1,7 +1,0 @@
-POST http://localhost:3001/api/user
-content-type: application/json
-
-{
-    "name": "jota",
-    "password": "samplepw"
-}

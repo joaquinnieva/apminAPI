@@ -1,6 +1,0 @@
-### All
-GET http://localhost:3001/api/user
-
-
-### by name
-GET http://localhost:3001/api/user/jota
