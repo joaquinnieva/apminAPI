@@ -13,7 +13,7 @@ router.get('/:id', async (req, res, next) => {
         id,
       },
     });
-    res.json({ name: ship.name, data: ship.data }).end();
+    res.json( ship ).end();
   } catch (error) {
     res.status(500).json({
       message: error.message,
@@ -91,7 +91,7 @@ router.delete('/:id', async (req, res, next) => {
         id,
       },
     });
-    return res.sendStatus(204).json({ message: 'Shipping deleted id:' + id }).end();
+    return res.status(204).json({ message: 'Shipping deleted id:' + id }).end();
   }
   if (!ship) {
     return res.status(500).json({ message: 'Shipping not found' }).end();
